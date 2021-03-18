@@ -1,0 +1,21 @@
+title Part 0 - Exercise 0.6: New note 
+
+
+browser->server: Initial Get Request
+server-->browser: HTML respons
+
+
+
+note over browser:
+writing "Test test" into the text field 
+and clicking the "save" button 
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: Json format: {content: "Test test", date: "2021-03-18T20:43:20.290Z"}
+
+note over browser:
+Then we will see the new data showing up 
+without a page reload again. 
+The app stay in the same page
+end note

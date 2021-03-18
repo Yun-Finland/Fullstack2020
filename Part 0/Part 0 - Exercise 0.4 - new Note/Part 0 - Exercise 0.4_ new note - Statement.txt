@@ -1,0 +1,34 @@
+title Part 0 - Exercise 0.4: new note
+
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+Server-->Browser: notes
+
+note over Browser:
+The server asks the browser to do a new 
+HTTP GET request to the address defined 
+in the header's Location address - 
+https://studies.cs.helsinki.fi/exampleapp/notes
+end note
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->Browser: HTML-code
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->Browser: main.css
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->Browser: main.js
+
+note over Browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->Browser: [{content: "hi whats up", date: "2021-03-18T15:46:03.930Z"},...]
+
+note over Browser:
+browser executes the event handler
+that renders notes to display
+end note
