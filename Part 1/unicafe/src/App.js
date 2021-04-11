@@ -4,7 +4,33 @@ const Title = (props) => <h1>{props.title}</h1>
 
 const Button = ({clickHandler, text}) => <button onClick={clickHandler}>{text}</button>
 
-const Counter = ({text, number}) => <p>{text} {number}</p>  
+const Statistic = ({text, value}) => {
+  return (
+    <tbody>
+      <tr>
+        <td>{text}</td> 
+        <td>{value}</td>
+      </tr>
+    </tbody>
+  )
+}
+
+const Statistics = ({good, neutral, bad}) => {
+  if (good||neutral||bad){
+    return (
+      <table>
+        <Statistic text='good' value={good} />
+        <Statistic text='neutral' value={neutral} />
+        <Statistic text='bad' value={bad} />
+        <Statistic text ='all' value={good+neutral+bad} />
+        <Statistic text = 'average' value={(good*1 + neutral*0 + bad*(-1))/(good+neutral+bad)} />
+        <Statistic text = 'positive' value={good*100/(good+neutral+bad) +" %"} />
+      </table>
+    )
+  }
+  
+  return <p>No feeback given</p>
+}
 
 const App = () => {
   // save clicks of each button to its own state
@@ -24,9 +50,7 @@ const App = () => {
       <Button clickHandler = {badIncreaseByOne} text = 'bad'/>
 
       <Title title = 'statistics'/>
-      <Counter text='good' number={good} />
-      <Counter text='neutral' number={neutral} />
-      <Counter text='bad' number={bad} />
+      <Statistics good ={good} neutral={neutral} bad={bad} />
     </div>
   )
 }
