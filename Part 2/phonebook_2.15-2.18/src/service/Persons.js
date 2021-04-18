@@ -17,8 +17,10 @@ const Person = ({person}) => {
   if (!newDelete){
     return (
       <div>
-        {person.name} {person.number} 
-        <button onClick={deleteOrNot}>delete</button>
+        <ul>
+          {person.name} {person.number} 
+          <button onClick={deleteOrNot}>delete</button>
+        </ul>
       </div>
     )
   } else {
